@@ -14,6 +14,7 @@ public class Sorting {
         while(counter<tCase){
             arr.clear();
             x=0;
+            y=0;
             loop = true;
         
             z = input.nextInt();
@@ -48,11 +49,10 @@ public class Sorting {
             for(int v=0; v<arr.size();v++){
                 System.out.print(" "+arr.get(v));
             }
-            System.out.println("");
+            
             counter++;
         }
 
-        input.close();
     }
     
     public static void Swaping(int a, int b, ArrayList<Integer> arrs){
