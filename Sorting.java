@@ -13,8 +13,8 @@ public class Sorting {
 
         while(counter<tCase){
             arr.clear();
-            z=0;
             x=0;
+            loop = true;
         
             z = input.nextInt();
             
@@ -22,7 +22,6 @@ public class Sorting {
                 arr.add(input.nextInt());
                 x++;
             }
-            input.nextLine();
 
             while (loop){
                 
