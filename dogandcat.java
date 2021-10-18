@@ -36,7 +36,7 @@ public class dogandcat {
         
         for(int x=0; x<S.length(); x++){
             arrOfChar.add(S.charAt(x));
-            if (arrOfChar.get(x).equals("D")){
+            if (arrOfChar.get(x).equals('D')){
                 arrOfDog.add(arrOfChar.get(x));
             }
             else{
@@ -48,7 +48,7 @@ public class dogandcat {
             if (arrOfChar.get(y).equals('C')){
                 C--;
                 arrOfCat.remove(0);
-                if (C<=0 && arrOfDog.size()!=0){
+                if (C<=0 && arrOfDog.size()>0){
                     return "NO";
                 }
                 else if (arrOfDog.size()==0){
@@ -62,14 +62,16 @@ public class dogandcat {
                 D--;
                 C += M;
                 arrOfDog.remove(0);
-                if(D==0&&arrOfDog.size()==0){
+                if(D<=0&&arrOfDog.size()==0){
                     return "YES";
                 }
                 else if(D<=0 && arrOfDog.size()>0){
                     return "NO";
                 }
+                else{
+                    continue;
+                }
             }
         }
-
     }
 }
