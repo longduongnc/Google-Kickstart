@@ -29,46 +29,47 @@ public class dogandcat {
     }
 
     public static String dogsgotfed(int N, int D, int C, int M, String S){
+        
         ArrayList<Character> arrOfChar = new ArrayList<Character>();
+        ArrayList<Character> arrOfDog = new ArrayList<Character>();
+        ArrayList<Character> arrOfCat = new ArrayList<Character>();
+        
         for(int x=0; x<S.length(); x++){
             arrOfChar.add(S.charAt(x));
+            if (arrOfChar.get(x).equals("D")){
+                arrOfDog.add(arrOfChar.get(x));
+            }
+            else{
+                arrOfCat.add(arrOfChar.get(x));
+            }
         }
 
         for (int y=0; y<arrOfChar.size(); y++){
-            
-            boolean allCat;
-            int Cat = 0, Dog = 0;
-            
-            for(int z=0; z<arrOfChar.size(); z++){
-                if (arrOfChar.get(z).equals('C')){
-                    Cat++;
+            if (arrOfChar.get(y).equals('C')){
+                C--;
+                arrOfCat.remove(0);
+                if (C<=0 && arrOfDog.size()!=0){
+                    return "NO";
+                }
+                else if (arrOfDog.size()==0){
+                    return "YES";
                 }
                 else{
-                    Dog++;
-                }
-            }
-            
-            if (Dog==0){
-                allCat = true;
-            }
-            else{
-                allCat = false;
-            }
-            
-            if(allCat == true ){
-                return "YES";
-            }
-            else if (arrOfChar.get(y).equals('C')){
-                C--;
-                if(C==0&&D>0){
-                    return "NO";
+                    continue;
                 }
             }
             else{
                 D--;
                 C += M;
+                arrOfDog.remove(0);
+                if(D==0&&arrOfDog.size()==0){
+                    return "YES";
+                }
+                else if(D<=0 && arrOfDog.size()>0){
+                    return "NO";
+                }
             }
         }
-        return "YES";
+
     }
 }
